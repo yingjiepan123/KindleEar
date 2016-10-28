@@ -65,8 +65,7 @@ class Login(BaseHandler):
         
         try:
             pwdhash = hashlib.md5(passwd).hexdigest()
-        except:
-            u = None
+        except:            u = None
         else:
             u = KeUser.all().filter("name = ", name).filter("passwd = ", pwdhash).get()
         if u:
@@ -125,4 +124,4 @@ class Logout(BaseHandler):
         main.session.username = ''
         main.session.lang = ''
         main.session.kill()
-        raise web.seeother(r'/')
+        raise web.seeother(r'/'
